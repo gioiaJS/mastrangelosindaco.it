@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Mastrangelo Sindaco</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	</head>
+	<body class="landing is-preload">
+
+		<div id="page-wrapper" class="app">
+
+			<!-- Banner -->
+			<section id="banner">
+				<h2>{{ title }}</h2>
+				<p>Candidato Sindaco</p>
+				<ul class="actions special">
+					<li><a href="#" target="_blank" class="button">Programma</a></li>
+					<li><a @click="goToLegal()" class="button" href="index.html#lista">Elezioni Trasparenti</a></li>
+				</ul>
+			</section>
+
+			<!-- Main -->
+			<section id="main" class="container">
+
+				<section class="box special" v-show="!showLegal">
+					<header class="major">
+						<h2>Il mio impegno a ripartire con Gioia</h2>
+						<p>Elezioni Amministrative 2019<br />
+						Gioia del Colle</p>
+					</header>
+					<span class="image featured"><img src="images/banner-4.jpg" alt="" /></span>
+
+				</section>
+
+				<section class="box special features" v-show="showLegal" id="lista">
+					<div class="col-12">
+						<section class="box">
+							<h3>Clicca sul logo del partito politico o lista civica per conoscere i candidati</h3>
+							<div class="box alt">
+								<div class="row gtr-50 gtr-uniform">
+									<div class="col-4" v-for="lista in coalizione">
+										<a href="index.html#candidati">
+											<span class="image fit">
+												<img :src=lista.logo @click="changeLista(lista)" alt="" />
+											</span>
+										</a>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+				</section>
+
+				<section class="box" v-show="showList" id="candidati">
+
+						<h3>{{ key.name }}</h3>
+						<h4>Elezioni Amministrative 2019 - Gioia del Colle</h4>
+
+						<center>
+							<img :src=key.logo alt="" width="240px" />
+						</center>
+
+						<div class="box alt">
+							<div class="row gtr-50 gtr-uniform">
+									<div class="col-3" v-for="(item, index) in 16">
+										<span class="image fit"><img :src="getListImage(index+1)" alt="" /></span>
+										<center>
+										<ul class="actions stacked">
+											<li><a :href="getListCV(index+1)" target="_blank" class="button special small icon fa-download">Curriculum Vitae</a></li>
+											<li><a :href="getListLegal(index+1)" target="_blank" class="button special small icon fa-download">Certificato Penale</a></li>
+										</ul>
+										</center>
+									</div>
+							</div>
+						</div>
+				</section>
+			</section>
+
+			<!-- Footer -->
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; {{ title }} All rights reserved.</li></li>
+				</ul>
+			</footer>
+
+		</div>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script src="assets/js/app.js"></script>
+
+	</body>
+</html>
