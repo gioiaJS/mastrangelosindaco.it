@@ -4,7 +4,7 @@ var app = new Vue({
       title: 'Mastrangelo Sindaco',
       showLegal: false,
       showList: false,
-      elezionitrasparenti: true,
+      elezionitrasparenti: false,
       key: '',
       min: 1,
       max: 16,
